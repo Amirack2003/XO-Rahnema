@@ -1,15 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class game {
     private JPanel fieldpanel = new JPanel(), mainpanel = new JPanel();
-    private int turn = 0 , n;
+    private int turn = 0 , n , m;
     JButton field[][];
     Color colors[];
     JButton turn_color = new JButton();
     public game(int n,int m){
         this.n = n;
+        this.m = m;
         field = new JButton[m][m];
         colors = new Color[n];
         fieldpanel.setLayout(new GridLayout(m,m));
@@ -17,6 +20,7 @@ public class game {
             for(int j = 0 ; j < m ;j++){
                 field[i][j] = new JButton();
                 field[i][j].setBackground(new Color(255,255,255));
+                field[i][j].addActionListener(listener);
                 fieldpanel.add(field[i][j]);
             }
         }
@@ -40,4 +44,18 @@ public class game {
     public JPanel getMainpanel() {
         return mainpanel;
     }
+    ActionListener listener = new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < m; j++) {
+                    if (e.getSource() == field[i][j] && field[i][j].getBackground() == (new Color(255, 255, 255)) ) {
+                        field[i][j].setBackground(colors[turn]);
+                        turn++;
+                        setTurnColor();
+                        System.out.println(" *** ");
+                    }
+                }
+            }
+        }
+    };
 }
