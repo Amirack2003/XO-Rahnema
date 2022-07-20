@@ -59,21 +59,21 @@ public class game {
         }
     };
     public void checkTheWinner(){
-        for(int x = 0 ; x < m ; x++) {
-            for (int y = 0; y < m; y++) {
+        for(int x = 1 ; x < m-1 ; x++) {
+            for (int y = 1; y < m-1; y++) {
                 for(int z = 0 ; z < n ; z++) {
                     if(!field[x][y].getBackground().equals(colors[z]))continue;
                     if ((x + 1 < m && y + 1 < m && field[x + 1][y + 1].getBackground().equals(colors[z])) && (x - 1 > m && y - 1 > m && field[x - 1][y - 1].getBackground().equals(colors[z]))) {
-                        JOptionPane.showMessageDialog(null, "Nafare " + z + " Barande Shod");
+                        JOptionPane.showMessageDialog(null, "Nafare " + (z+1) + " Barande Shod");
                         System.exit(0);
                     } else if ((x - 1 < m && y + 1 < m && field[x - 1][y + 1].getBackground().equals(colors[z])) && (x + 1 < m && y - 1 < m && field[x + 1][y - 1].getBackground().equals(colors[z]))) {
-                        JOptionPane.showMessageDialog(null, "Nafare " + z + " Barande Shod");
+                        JOptionPane.showMessageDialog(null, "Nafare " + (z+1) + " Barande Shod");
                         System.exit(0);
                     } else if ((x < m && y + 1 < m && field[x][y + 1].getBackground().equals(colors[z])) && (x < m && y - 1 < m && field[x][y - 1].getBackground().equals(colors[z]))) {
-                        JOptionPane.showMessageDialog(null, "Nafare " + z + " Barande Shod");
+                        JOptionPane.showMessageDialog(null, "Nafare " + (z+1) + " Barande Shod");
                         System.exit(0);
                     } else if ((x + 1 < m && y < m && field[x + 1][y].getBackground().equals(colors[z])) && (x - 1 < m && y < m && field[x - 1][y].getBackground().equals(colors[z]))) {
-                        JOptionPane.showMessageDialog(null, "Nafare " + z + " Barande Shod");
+                        JOptionPane.showMessageDialog(null, "Nafare " + (1+z) + " Barande Shod");
                         System.exit(0);
                     }
                 }
