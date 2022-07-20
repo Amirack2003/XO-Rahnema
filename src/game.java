@@ -48,14 +48,28 @@ public class game {
         public void actionPerformed(ActionEvent e) {
             for (int i = 0; i < m; i++) {
                 for (int j = 0; j < m; j++) {
-                    if (e.getSource() == field[i][j] && field[i][j].getBackground() == (new Color(255, 255, 255)) ) {
+                    if (e.getSource() == field[i][j] && field[i][j].getBackground().equals(new Color(255, 255, 255)) ){
                         field[i][j].setBackground(colors[turn]);
+                        //checkTheWinner(i,j);
                         turn++;
                         setTurnColor();
-                        System.out.println(" *** ");
                     }
                 }
             }
         }
     };
+    /*public void checkTheWinner(int x,int y){
+        if( (x+1 < m && y+1 < m && field[x+1][y+1].getBackground().equals()) && ()){
+
+        }
+        else if(() && ()){
+
+        }
+        else if(() && ()){
+
+        }
+        else if(() && ()){
+
+        }
+    }*/
 }
