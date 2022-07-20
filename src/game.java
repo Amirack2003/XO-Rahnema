@@ -72,7 +72,7 @@ public class game {
                     } else if (field[x][y + 1].getBackground().equals(colors[z]) && field[x][y - 1].getBackground().equals(colors[z])) {
                         JOptionPane.showMessageDialog(null, "Nafare " + (z+1) + " Barande Shod");
                         System.exit(0);
-                    } else if (x + 1 < m && y < m && field[x + 1][y].getBackground().equals(colors[z]) && field[x - 1][y].getBackground().equals(colors[z])) {
+                    } else if (field[x + 1][y].getBackground().equals(colors[z]) && field[x - 1][y].getBackground().equals(colors[z])) {
                         JOptionPane.showMessageDialog(null, "Nafare " + (1+z) + " Barande Shod");
                         System.exit(0);
                     }
