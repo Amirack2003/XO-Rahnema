@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame();
         frame.setSize(1200,800);
         frame.setVisible(true);
@@ -14,11 +14,13 @@ public class Main {
         boolean isReady = startMenu.getIs_game_ready();
         while (isReady == false){
             isReady = startMenu.getIs_game_ready();
-            System.out.println();
+            Thread.sleep(1000);
         }
         frame.remove(startMenu.getPanel());
+        game game = startMenu.getGame();
+        frame.setLayout(new GridLayout(2,1));
+        frame.add(game.getMainpanel());
         frame.repaint();
         frame.revalidate();
-        game game = startMenu.getGame();
     }
 }
